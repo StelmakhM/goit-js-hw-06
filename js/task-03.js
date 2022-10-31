@@ -21,4 +21,5 @@ const makeGalleryListMarkup = ({ url, alt }) => {
 }
 
 const makeGalleryList = images.map(makeGalleryListMarkup).join('');
+
 list.insertAdjacentHTML('afterbegin', makeGalleryList);
