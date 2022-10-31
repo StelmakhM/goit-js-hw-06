@@ -9,9 +9,9 @@ const colorName = document.querySelector('.color');
 
 
 const onClickBgChange = (event) => {
-  let color = getRandomHexColor;
+  let color = getRandomHexColor();
   body.style.backgroundColor = color;
-  span.textContent = color;
+  colorName.textContent = color;
 };
 
 
