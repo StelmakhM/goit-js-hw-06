@@ -1,22 +1,18 @@
 const form = document.querySelector('.login-form');
-const inputs = document.querySelectorAll('.login-form input');
 
 const onFormSubmit = (event) => {
     event.preventDefault();
-
     const { email, password } = event.currentTarget.elements;
-    const formData = {
-        email: email.value,
-        password: password.value
-    }
 
-    inputs.forEach(input => {
-        if (!input.value) {
-            alert('Будь-ласка, заповніть всі поля');
+    if (!email.value || !password.value) {
+        alert('Будь-ласка, заповніть всі поля');
+    } else {
+        const formData = {
+            email: email.value,
+            password: password.value
         }
-    })
-
-    console.log(formData);
+        console.log(formData);
+    }
     event.currentTarget.reset();
 };
 
