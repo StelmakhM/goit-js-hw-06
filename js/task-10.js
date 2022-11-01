@@ -10,26 +10,30 @@ const input = document.querySelector('input');
 let boxSize = 30;
 let boxArr = [];
 
+
+const createSingleBox = () => {
+  const box = document.createElement('div');
+  box.style.backgroundColor = getRandomHexColor();
+  box.style.width = `${boxSize}px`;
+  box.style.height = `${boxSize}px`
+  boxArr.push(box);
+}
+
+
 const createBoxes = (event) => {
   let amountOfBoxes = input.value;
   for (let i = 0; i < amountOfBoxes; i += 1) {
-    const box = document.createElement('div');
-
-    box.style.backgroundColor = getRandomHexColor();
-    box.style.width = `${boxSize}px`;
-    box.style.height = `${boxSize}px`
+    createSingleBox();
     boxSize += 10;
-
-    boxArr.push(box);
-    containerForBoxes.append(...boxArr);
   }
+  containerForBoxes.append(...boxArr);
 }
 
 
 const destroyBoxes = (event) => {
   containerForBoxes.innerHTML = '';
   boxSize = 30;
-  boxArr = [];
+  boxArr.length = 0;
 };
 
 
